@@ -28,3 +28,34 @@
 2018-09-19 17:40:28.586 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 6.2296ms 200 application/json; charset=UTF-8
 2018-09-19 17:40:28.687 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 109.6099ms 200 application/json; charset=UTF-8
 2018-09-19 17:40:29.055 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 POST http://localhost:55440/sockjs-node/234/hpz3qkwr/xhr_streaming?t=1537371629053  0
+2018-09-19 18:11:23.210 +02:00 [Trace] rrApiTester.Web.Program: Starting web host
+2018-09-19 18:11:23.320 +02:00 [Trace] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\rr1980\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-09-19 18:11:23.831 +02:00 [Trace] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/  
+2018-09-19 18:11:23.831 +02:00 [Trace] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:55440/  0
+2018-09-19 18:11:23.863 +02:00 [Trace] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 31.5994ms 200 
+
+2018-09-19 18:11:26.084 +02:00 [Trace] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware: An unhandled exception has occurred while executing the request.
+System.Net.Http.HttpRequestException: Failed to proxy the request to http://localhost:4200/, because the request to the proxy target failed. Check that the proxy target server is running and accepting requests to http://localhost:4200/.
+
+The underlying exception message was 'Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte'.Check the InnerException for more details. ---> System.Net.Http.HttpRequestException: Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte ---> System.Net.Sockets.SocketException: Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.CreateConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.WaitForCreatedConnectionAsync(ValueTask`1 creationTask)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+2018-09-19 18:11:26.152 +02:00 [Trace] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 2320.5791ms 500 text/html; charset=utf-8

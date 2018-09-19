@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -55,9 +56,33 @@ namespace rr.Logger
                 {
                     foreach (var item in group)
                     {
-                        Console.WriteLine(item.Message);
-                        Debug.WriteLine(item.Message);
-                        await streamWriter.WriteAsync(item.Message + Environment.NewLine);
+                        var builder = new StringBuilder();
+
+                        if (item.Exception != null)
+                        {
+                            builder.AppendLine();
+                        }
+
+                        builder.Append(item.Timestamp.ToString("yyyy-MM-dd HH:mm:ss.fff zzz"));
+                        builder.Append(" [");
+                        builder.Append(item.LogLevel.ToString());
+                        builder.Append("] ");
+                        builder.Append(item.Category);
+                        builder.Append(": ");
+                        builder.Append(item.Message);
+
+                        if (item.Exception != null)
+                        {
+                            builder.AppendLine();
+                            builder.AppendLine(item.Exception.ToString());
+                        }
+
+                        var result = builder.ToString();
+
+
+                        Console.WriteLine(result);
+                        Debug.WriteLine(result);
+                        await streamWriter.WriteAsync(result + Environment.NewLine);
                     }
                 }
             }

@@ -81,13 +81,13 @@ namespace rr.LoggerBase
             return Task.Delay(interval, cancellationToken);
         }
 
-        internal void AddMessage(DateTimeOffset timestamp, string message)
+        internal void AddMessage(LogMessage message)
         {
             if (!_messageQueue.IsAddingCompleted)
             {
                 try
                 {
-                    _messageQueue.Add(new LogMessage { Message = message, Timestamp = timestamp }, _cancellationTokenSource.Token);
+                    _messageQueue.Add(message, _cancellationTokenSource.Token);
                 }
                 catch
                 {
