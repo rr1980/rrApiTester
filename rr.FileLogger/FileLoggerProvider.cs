@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using rr.LoggerBase;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace rr.FileLogger
     [ProviderAlias("File")]
     public class FileLoggerProvider : BatchingLoggerProvider
     {
-        private static Dictionary<string, BatchingLogger> _logger = new Dictionary<string, BatchingLogger>();
+        private static ConcurrentDictionary<string, BatchingLogger> _loggers = new ConcurrentDictionary<string, BatchingLogger>();
 
         private readonly string _path;
         private readonly string _fileName;
@@ -125,17 +126,7 @@ namespace rr.FileLogger
         public override ILogger CreateNewLogger(string categoryName)
         {
 
-            if (_logger.TryGetValue(categoryName, out var logger))
-            {
-                return logger;
-            }
-            else
-            {
-                var newLogger = new BatchingLogger(this, categoryName, GetLogLevel(categoryName));
-                _logger.Add(categoryName, newLogger);
-
-                return newLogger;
-            }
+            return _loggers.GetOrAdd(categoryName, name => new BatchingLogger(this, name, GetLogLevel(categoryName)));
         }
 
     }

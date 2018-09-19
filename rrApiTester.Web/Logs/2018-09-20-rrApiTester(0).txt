@@ -1,0 +1,37 @@
+2018-09-20 00:11:05.445 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/  
+2018-09-20 00:11:05.445 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:55440/  0
+2018-09-20 00:11:05.466 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 19.9184ms 200 
+2018-09-20 00:11:04.969 +02:00 [Information] rrApiTester.Web.Program: Starting web host
+2018-09-20 00:11:05.067 +02:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\rr1980\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-09-20 00:11:06.664 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1219.3404ms 304 
+2018-09-20 00:11:06.674 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/styles.js  
+2018-09-20 00:11:06.674 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/runtime.js  
+2018-09-20 00:11:06.674 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/main.js  
+2018-09-20 00:11:06.675 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/polyfills.js  
+2018-09-20 00:11:06.675 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/vendor.js  
+2018-09-20 00:11:06.690 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 15.7121ms 304 
+2018-09-20 00:11:07.689 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1015.2277ms 304 
+2018-09-20 00:11:07.689 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1015.6856ms 304 
+2018-09-20 00:11:07.700 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1025.2376ms 304 
+2018-09-20 00:11:07.702 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1026.6065ms 304 
+2018-09-20 00:11:07.705 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/runtime.js.map  
+2018-09-20 00:11:07.715 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 9.9425ms 200 application/json; charset=UTF-8
+2018-09-20 00:11:08.177 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/sockjs-node/info?t=1537395068174  
+2018-09-20 00:11:08.182 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 4.9965ms 200 application/json; charset=UTF-8
+2018-09-20 00:11:08.199 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/sockjs-node/799/tdy4byhf/websocket  
+2018-09-20 00:11:08.202 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/styles.js.map  
+2018-09-20 00:11:08.202 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/polyfills.js.map  
+2018-09-20 00:11:08.213 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/vendor.js.map  
+2018-09-20 00:11:08.235 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/main.js.map  
+2018-09-20 00:11:08.236 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1.1883ms 200 application/json; charset=UTF-8
+2018-09-20 00:11:08.254 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 51.1122ms 200 application/json; charset=UTF-8
+2018-09-20 00:11:08.254 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 51.0815ms 200 application/json; charset=UTF-8
+2018-09-20 00:11:08.322 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 109.3618ms 200 application/json; charset=UTF-8
+2018-09-20 00:11:08.831 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 POST http://localhost:55440/sockjs-node/799/1s0ag22q/xhr_streaming?t=1537395068828  0
+2018-09-20 00:11:13.499 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/api/SampleData/WeatherForecasts  
+2018-09-20 00:11:13.622 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 122.8093ms 200 application/json; charset=utf-8
+2018-09-20 00:11:13.524 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Route matched with {action = "WeatherForecasts", controller = "SampleData", page = ""}. Executing action rrApiTester.Web.Controllers.SampleDataController.WeatherForecasts (rrApiTester.Web)
+2018-09-20 00:11:13.536 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executing action method rrApiTester.Web.Controllers.SampleDataController.WeatherForecasts (rrApiTester.Web) - Validation state: Valid
+2018-09-20 00:11:13.543 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action method rrApiTester.Web.Controllers.SampleDataController.WeatherForecasts (rrApiTester.Web), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 4.1398ms.
+2018-09-20 00:11:13.551 +02:00 [Information] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor: Executing ObjectResult, writing value of type 'System.Linq.Enumerable+SelectIPartitionIterator`2[[System.Int32, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[rrApiTester.Web.Controllers.SampleDataController+WeatherForecast, rrApiTester.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2018-09-20 00:11:13.622 +02:00 [Information] Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker: Executed action rrApiTester.Web.Controllers.SampleDataController.WeatherForecasts (rrApiTester.Web) in 96.1012ms
