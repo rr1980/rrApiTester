@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using rr.Logger;
+using rr.ConsoleLogger;
+using rr.DebugLogger;
+using rr.FileLogger;
 using System;
 
 namespace rrApiTester.Web
@@ -41,7 +43,19 @@ namespace rrApiTester.Web
                 .ConfigureLogging((hostingContext, logging) =>
                 {
                     logging.ClearProviders();
-                    logging.AddFile(opts =>
+
+
+                    logging.AddConsoleLogger(opts =>
+                    {
+                        hostingContext.Configuration.GetSection("ConsoleLoggerOptions").Bind(opts);
+                    });
+
+                    logging.AddDebugLogger(opts =>
+                    {
+                        hostingContext.Configuration.GetSection("DebugLoggerOptions").Bind(opts);
+                    });
+
+                    logging.AddFileLogger(opts =>
                     {
                         hostingContext.Configuration.GetSection("FileLoggingOptions").Bind(opts);
                     });

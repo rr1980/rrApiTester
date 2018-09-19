@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using System;
 
-namespace rr.Logger
+namespace rr.FileLogger
 {
 
     /// <summary>
@@ -14,7 +14,7 @@ namespace rr.Logger
         /// Adds a file logger named 'File' to the factory.
         /// </summary>
         /// <param name="builder">The <see cref="ILoggingBuilder"/> to use.</param>
-        public static ILoggingBuilder AddFile(this ILoggingBuilder builder)
+        public static ILoggingBuilder AddFileLogger(this ILoggingBuilder builder)
         {
             builder.Services.AddSingleton<ILoggerProvider, FileLoggerProvider>();
             return builder;
@@ -25,9 +25,9 @@ namespace rr.Logger
         /// </summary>
         /// <param name="builder">The <see cref="ILoggingBuilder"/> to use.</param>
         /// <param name="filename">Sets the filename prefix to use for log files</param>
-        public static ILoggingBuilder AddFile(this ILoggingBuilder builder, string filename)
+        public static ILoggingBuilder AddFileLogger(this ILoggingBuilder builder, string filename)
         {
-            builder.AddFile(options => options.FileName = "log-");
+            builder.AddFileLogger(options => options.FileName = "log-");
             return builder;
         }
 
@@ -36,13 +36,13 @@ namespace rr.Logger
         /// </summary>
         /// <param name="builder">The <see cref="ILoggingBuilder"/> to use.</param>
         /// <param name="configure">Configure an instance of the <see cref="FileLoggerOptions" /> to set logging options</param>
-        public static ILoggingBuilder AddFile(this ILoggingBuilder builder, Action<FileLoggerOptions> configure)
+        public static ILoggingBuilder AddFileLogger(this ILoggingBuilder builder, Action<FileLoggerOptions> configure)
         {
             if (configure == null)
             {
                 throw new ArgumentNullException(nameof(configure));
             }
-            builder.AddFile();
+            builder.AddFileLogger();
             builder.Services.Configure(configure);
 
             return builder;

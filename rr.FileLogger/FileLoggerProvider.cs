@@ -1,16 +1,14 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using rr.LoggerBase;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace rr.Logger
+namespace rr.FileLogger
 {
     /// <summary>
     /// An <see cref="ILoggerProvider" /> that writes logs to a file
@@ -18,6 +16,8 @@ namespace rr.Logger
     [ProviderAlias("File")]
     public class FileLoggerProvider : BatchingLoggerProvider
     {
+        private static Dictionary<string, BatchingLogger> _logger = new Dictionary<string, BatchingLogger>();
+
         private readonly string _path;
         private readonly string _fileName;
         private readonly int? _maxFileSize;
@@ -37,19 +37,12 @@ namespace rr.Logger
         }
 
         /// <inheritdoc />
-        protected override async Task WriteMessagesAsync(IEnumerable<LogMessage> messages, CancellationToken cancellationToken)
+        protected override async Task WriteMessagesAsync(IEnumerable<IGrouping<(int Year, int Month, int Day), LogMessage>> messages, CancellationToken cancellationToken)
         {
             Directory.CreateDirectory(_path);
 
-            foreach (var group in messages.GroupBy(GetGrouping))
+            foreach (var group in messages)
             {
-                //var fullName = GetFullName(group.Key);
-                //var fileInfo = new FileInfo(fullName);
-                //if (_maxFileSize > 0 && fileInfo.Exists && fileInfo.Length > _maxFileSize)
-                //{
-                //    return;
-                //}
-
                 var fullName = GetFileName(group.Key);
 
                 using (var streamWriter = File.AppendText(fullName))
@@ -77,12 +70,10 @@ namespace rr.Logger
                             builder.AppendLine(item.Exception.ToString());
                         }
 
-                        var result = builder.ToString();
+                        builder.AppendLine();
 
 
-                        Console.WriteLine(result);
-                        Debug.WriteLine(result);
-                        await streamWriter.WriteAsync(result + Environment.NewLine);
+                        await streamWriter.WriteAsync(builder.ToString());
                     }
                 }
             }
@@ -110,10 +101,7 @@ namespace rr.Logger
             //return Path.Combine(_path, $"{_fileName}{group.Year:0000}{group.Month:00}{group.Day:00}.txt");
         }
 
-        private (int Year, int Month, int Day) GetGrouping(LogMessage message)
-        {
-            return (message.Timestamp.Year, message.Timestamp.Month, message.Timestamp.Day);
-        }
+
 
         /// <summary>
         /// Deletes old log files, keeping a number of files defined by <see cref="FileLoggerOptions.RetainedFileCountLimit" />
@@ -133,5 +121,22 @@ namespace rr.Logger
                 }
             }
         }
+
+        public override ILogger CreateNewLogger(string categoryName)
+        {
+
+            if (_logger.TryGetValue(categoryName, out var logger))
+            {
+                return logger;
+            }
+            else
+            {
+                var newLogger = new BatchingLogger(this, categoryName, GetLogLevel(categoryName));
+                _logger.Add(categoryName, newLogger);
+
+                return newLogger;
+            }
+        }
+
     }
 }

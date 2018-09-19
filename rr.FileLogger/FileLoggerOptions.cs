@@ -1,7 +1,7 @@
 ﻿using rr.LoggerBase;
 using System;
 
-namespace rr.Logger
+namespace rr.FileLogger
 {
 
     /// <summary>

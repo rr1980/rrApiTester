@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,10 +21,11 @@ namespace rr.LoggerBase
         private Task _outputTask;
         private CancellationTokenSource _cancellationTokenSource;
 
-        private Dictionary<string, LogLevel> _logLevel = new Dictionary<string, LogLevel>();
+        protected Dictionary<string, LogLevel> _logLevel = new Dictionary<string, LogLevel>();
 
         protected BatchingLoggerProvider(IOptions<BatchingLoggerOptions> options)
         {
+            Debug.WriteLine("+++ BatchingLoggerProvider");
             // NOTE: Only IsEnabled is monitored
 
             var loggerOptions = options.Value;
@@ -44,7 +46,7 @@ namespace rr.LoggerBase
             Start();
         }
 
-        protected abstract Task WriteMessagesAsync(IEnumerable<LogMessage> messages, CancellationToken token);
+        protected abstract Task WriteMessagesAsync(IEnumerable<IGrouping<(int Year, int Month, int Day), LogMessage>> messages, CancellationToken token);
 
         private async Task ProcessLogQueue(object state)
         {
@@ -62,7 +64,7 @@ namespace rr.LoggerBase
                 {
                     try
                     {
-                        await WriteMessagesAsync(_currentBatch, _cancellationTokenSource.Token);
+                        await WriteMessagesAsync(_currentBatch.GroupBy(GetGrouping), _cancellationTokenSource.Token);
                     }
                     catch
                     {
@@ -74,6 +76,11 @@ namespace rr.LoggerBase
 
                 await IntervalAsync(_interval, _cancellationTokenSource.Token);
             }
+        }
+
+        private (int Year, int Month, int Day) GetGrouping(LogMessage message)
+        {
+            return (message.Timestamp.Year, message.Timestamp.Month, message.Timestamp.Day);
         }
 
         protected virtual Task IntervalAsync(TimeSpan interval, CancellationToken cancellationToken)
@@ -131,15 +138,29 @@ namespace rr.LoggerBase
             Stop();
         }
 
+        public abstract ILogger CreateNewLogger(string categoryName);
+
         public ILogger CreateLogger(string categoryName)
         {
-            var key = _logLevel.Keys.FirstOrDefault(x => categoryName.StartsWith(x));
-
-            key = string.IsNullOrEmpty(key) ? "Default" : key;
-
-            var ll = _logLevel.GetValueOrDefault(key);
-
-            return new BatchingLogger(this, categoryName, ll);
+            return CreateNewLogger(categoryName);
         }
+
+        protected LogLevel GetLogLevel(string categoryName)
+        {
+            var key = _logLevel.Keys.FirstOrDefault(x => categoryName.StartsWith(x));
+            key = string.IsNullOrEmpty(key) ? "Default" : key;
+            return _logLevel.GetValueOrDefault(key);
+        }
+
+        //public ILogger CreateLogger(string categoryName)
+        //{
+        //    var key = _logLevel.Keys.FirstOrDefault(x => categoryName.StartsWith(x));
+
+        //    key = string.IsNullOrEmpty(key) ? "Default" : key;
+
+        //    var ll = _logLevel.GetValueOrDefault(key);
+
+        //    return new BatchingLogger(this, categoryName, ll);
+        //}
     }
 }

@@ -29,6 +29,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\rr.ConsoleLogger\rr.ConsoleLogger.csproj" />
+    <ProjectReference Include="..\rr.DebugLogger\rr.DebugLogger.csproj" />
+    <ProjectReference Include="..\rr.FileLogger\rr.FileLogger.csproj" />
     <ProjectReference Include="..\rr.Logger\rr.Logger.csproj" />
   </ItemGroup>
 
