@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rr.DebugLogger", "rr.DebugL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rr.ConsoleLogger", "rr.ConsoleLogger\rr.ConsoleLogger.csproj", "{EEB390FB-608B-4CFB-9733-E93BE28D4840}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rr", "rr", "{4A9B61AB-F288-4D80-83CB-E52D9230192C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9B0E55FB-A550-4375-8DA7-1DE271B391A7} = {4A9B61AB-F288-4D80-83CB-E52D9230192C}
+		{48A438EB-43B3-4A1F-A64B-8B9C4A282BE3} = {4A9B61AB-F288-4D80-83CB-E52D9230192C}
+		{5926CD73-FFCE-4F6B-92F2-68532A8B51A1} = {4A9B61AB-F288-4D80-83CB-E52D9230192C}
+		{A4F690F1-3FFD-42B7-99EC-29E64E7419E1} = {4A9B61AB-F288-4D80-83CB-E52D9230192C}
+		{EEB390FB-608B-4CFB-9733-E93BE28D4840} = {4A9B61AB-F288-4D80-83CB-E52D9230192C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F517292D-3F5B-45D4-B477-06FBAEDFC3F9}

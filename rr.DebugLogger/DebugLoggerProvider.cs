@@ -24,8 +24,6 @@ namespace rr.DebugLogger
         /// <param name="options">The options object controlling the logger</param>
         public DebugLoggerProvider(IOptions<DebugLoggerOptions> options) : base(options)
         {
-            Debug.WriteLine("+++ DebugLoggerProvider");
-
         }
 
         /// <inheritdoc />

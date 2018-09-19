@@ -10,7 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\rr.LoggerBase\rr.LoggerBase.csproj" />
+    <ProjectReference Include="..\rr.ConsoleLogger\rr.ConsoleLogger.csproj" />
+    <ProjectReference Include="..\rr.DebugLogger\rr.DebugLogger.csproj" />
+    <ProjectReference Include="..\rr.FileLogger\rr.FileLogger.csproj" />
   </ItemGroup>
 
 </Project>
