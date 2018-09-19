@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rrApiTester.Web", "rrApiTester.Web\rrApiTester.Web.csproj", "{2A2A3C23-1A7C-4F6A-B433-3885A51DA026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "rrApiTester.Web", "rrApiTester.Web\rrApiTester.Web.csproj", "{2A2A3C23-1A7C-4F6A-B433-3885A51DA026}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rr.Logger", "rr.Logger\rr.Logger.csproj", "{9B0E55FB-A550-4375-8DA7-1DE271B391A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rr.LoggerBase", "rr.LoggerBase\rr.LoggerBase.csproj", "{48A438EB-43B3-4A1F-A64B-8B9C4A282BE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{2A2A3C23-1A7C-4F6A-B433-3885A51DA026}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A2A3C23-1A7C-4F6A-B433-3885A51DA026}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A2A3C23-1A7C-4F6A-B433-3885A51DA026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B0E55FB-A550-4375-8DA7-1DE271B391A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0E55FB-A550-4375-8DA7-1DE271B391A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0E55FB-A550-4375-8DA7-1DE271B391A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0E55FB-A550-4375-8DA7-1DE271B391A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A438EB-43B3-4A1F-A64B-8B9C4A282BE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A438EB-43B3-4A1F-A64B-8B9C4A282BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A438EB-43B3-4A1F-A64B-8B9C4A282BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A438EB-43B3-4A1F-A64B-8B9C4A282BE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

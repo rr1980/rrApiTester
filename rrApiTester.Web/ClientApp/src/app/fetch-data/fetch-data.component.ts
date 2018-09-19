@@ -1,18 +1,62 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Inject, Input, Output, EventEmitter } from '@angular/core';
+import { FetchService, IFetchResult } from '../services/fetch.service';
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-fetch-data',
-  templateUrl: './fetch-data.component.html'
+  templateUrl: './fetch-data.component.html',
+  styleUrls: ['./fetch-data.component.css'],
+  providers: [FetchService]
 })
 export class FetchDataComponent {
-  public forecasts: WeatherForecast[];
+  public result: IFetchResult<{}>;
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+  @Input() url: string = "";
+
+  _execute: boolean = false;
+  _isError: boolean = false;
+
+  @Input()
+  set execute(val) {
+    this._execute = val;
+
+    if (val) {
+      this.result = null;
+
+      this.fetchService.fetch(this.url, result => {
+        this._isError = false;
+
+        this.result = result;
+
+
+
+        this._execute = false;
+        this.executeChange.next(false);
+
+      }, err => {
+        this.result = err;
+
+        this.executeChange.next(false);
+        this._execute = false;
+
+        this._isError = true;
+
+      })
+    }
+
   }
+
+  //private printHeadersToConsole(scope: string, headers: HttpHeaders) {
+  //  var keys = headers.keys();
+  //  var headerItems = keys.map(key => `${key}: ${headers.get(key)}`);
+  //  console.debug(scope, headerItems);
+  //}
+
+  @Output() executeChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  constructor(private fetchService: FetchService) {
+  }
+
 }
 
 interface WeatherForecast {

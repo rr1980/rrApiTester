@@ -1,0 +1,30 @@
+2018-09-19 17:40:25.044 +02:00 [Information] rrApiTester.Web.Program: Starting web host
+2018-09-19 17:40:25.153 +02:00 [Information] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager: User profile is available. Using 'C:\Users\rr1980\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2018-09-19 17:40:25.651 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/  
+2018-09-19 17:40:25.651 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 DEBUG http://localhost:55440/  0
+2018-09-19 17:40:25.680 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 28.5352ms 200 
+2018-09-19 17:40:26.862 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1211.0947ms 304 
+2018-09-19 17:40:26.873 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/polyfills.js  
+2018-09-19 17:40:26.873 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/vendor.js  
+2018-09-19 17:40:26.875 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/main.js  
+2018-09-19 17:40:26.876 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/styles.js  
+2018-09-19 17:40:26.876 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/runtime.js  
+2018-09-19 17:40:26.900 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 28.3525ms 304 
+2018-09-19 17:40:27.902 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1026.4863ms 304 
+2018-09-19 17:40:27.902 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1029.3603ms 304 
+2018-09-19 17:40:27.902 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1026.3123ms 304 
+2018-09-19 17:40:27.915 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 1039.8782ms 304 
+2018-09-19 17:40:28.416 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/sockjs-node/info?t=1537371628413  
+2018-09-19 17:40:28.421 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 5.092ms 200 application/json; charset=UTF-8
+2018-09-19 17:40:28.448 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/sockjs-node/234/hdm21r4j/websocket  
+2018-09-19 17:40:28.478 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/runtime.js.map  
+2018-09-19 17:40:28.478 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/styles.js.map  
+2018-09-19 17:40:28.484 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/polyfills.js.map  
+2018-09-19 17:40:28.499 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 20.9276ms 200 application/json; charset=UTF-8
+2018-09-19 17:40:28.525 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 41.8051ms 200 application/json; charset=UTF-8
+2018-09-19 17:40:28.525 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 46.9825ms 200 application/json; charset=UTF-8
+2018-09-19 17:40:28.577 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/vendor.js.map  
+2018-09-19 17:40:28.580 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 GET http://localhost:55440/main.js.map  
+2018-09-19 17:40:28.586 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 6.2296ms 200 application/json; charset=UTF-8
+2018-09-19 17:40:28.687 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request finished in 109.6099ms 200 application/json; charset=UTF-8
+2018-09-19 17:40:29.055 +02:00 [Information] Microsoft.AspNetCore.Hosting.Internal.WebHost: Request starting HTTP/1.1 POST http://localhost:55440/sockjs-node/234/hpz3qkwr/xhr_streaming?t=1537371629053  0
